@@ -1,0 +1,8 @@
+CREATE TABLE student (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  program VARCHAR(20) NOT NULL,
+  year_level INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
