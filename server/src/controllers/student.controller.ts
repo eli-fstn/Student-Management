@@ -11,3 +11,19 @@ export const getStudent = async (req: Request, res: Response) => {
     });
   }
 }
+
+export const createStudent = async (req: Request, res: Response) => {
+  try {
+    const student = await studentService.createStudent(
+      req.body.full_name,
+      req.body.email,
+      req.body.program,
+      req.body.year_level
+    );
+    res.status(201).json(student);
+  } catch (error) {
+    res.status(500).json({
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+}

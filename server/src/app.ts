@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import studentRoutes from "./routes/student";
+import studentRoutes from "./routes/student.route";
 import pool from "./config/db";
 
 const app = express();
