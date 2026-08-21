@@ -8,10 +8,10 @@ app.use(express.json());
 
 app.use('/student', studentRoutes)
 
-app.get("/health", async (req, res) => {
-  await pool.query("SELECT 1");
-
-  res.status(200).json({ status: "ok" });
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok"
+  });
 });
 
 export default app
