@@ -24,3 +24,17 @@ export const createStudent = async (full_name: String, email: String, program: S
 
   return response.rows[0];
 }
+
+export const updateStudent = async (full_name: String, email: String, program: String, year_level: number, id: number) => {
+  const update_student = loadSql('update_student.sql');
+
+  const response = await pool.query(update_student, [full_name, email, program, year_level, id]);
+  
+  return response.rows[0];
+}
+
+export const deleteStudent = async (id: number) => {
+  const delete_student = loadSql('delete_student.sql');
+
+  await pool.query(delete_student, [id]);
+}

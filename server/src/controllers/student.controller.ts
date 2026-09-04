@@ -27,3 +27,33 @@ export const createStudent = async (req: Request, res: Response) => {
     });
   }
 }
+
+export const updateStudent = async (req: Request, res: Response) => {
+  try {
+    const student = await studentService.updateStudent(
+      req.body.full_name,
+      req.body.email,
+      req.body.program,
+      req.body.year_level,
+      req.body.id
+    )
+    res.status(201).json(student);
+  } catch (error) {
+    res.status(500).json({
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+
+export const deleteStudent = async (req: Request, res: Response) => {
+  try {
+    const student = await studentService.deleteStudent(
+      req.body.id
+    )
+    res.status(200).json(student);
+  } catch (error) {
+    res.status(500).json({
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+} 
