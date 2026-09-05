@@ -1,1 +1,1 @@
-SELECT * FROM student;
+SELECT * FROM student ORDER BY id ASC;
